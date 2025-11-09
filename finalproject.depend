@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1762678067 source:c:\users\qbits\onedrive\desktop\c\finalproject\fileio.c
+	"fileio.h"
+	"utils.h"
+
+1762678399 c:\users\qbits\onedrive\desktop\c\finalproject\fileio.h
+	"common.h"
+
+1762678067 c:\users\qbits\onedrive\desktop\c\finalproject\common.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1762678068 c:\users\qbits\onedrive\desktop\c\finalproject\utils.h
+	"common.h"
+
+1762678068 source:c:\users\qbits\onedrive\desktop\c\finalproject\main.c
+	"common.h"
+	"auth.h"
+	"fileio.h"
+	"utils.h"
+
+1762678068 c:\users\qbits\onedrive\desktop\c\finalproject\auth.h
+	"common.h"
+
+1762678067 source:c:\users\qbits\onedrive\desktop\c\finalproject\utils.c
+	"utils.h"
+
