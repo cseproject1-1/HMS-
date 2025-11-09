@@ -13,15 +13,12 @@ void print_header(const char* title) {
 }
 
 int validate_date(const char* date) {
-    // Simple date validation (DD-MM-YYYY format)
     if (strlen(date) != 10) return 0;
     if (date[2] != '-' || date[5] != '-') return 0;
-
     for (int i = 0; i < 10; i++) {
         if (i == 2 || i == 5) continue;
         if (!isdigit(date[i])) return 0;
     }
-
     return 1;
 }
 
@@ -48,7 +45,6 @@ char* status_to_string(PatientStatus status) {
 }
 
 void to_upper_case(char* str) {
-    // Using pointer arithmetic
     char* ptr = str;
     while (*ptr) {
         *ptr = toupper(*ptr);
@@ -58,7 +54,6 @@ void to_upper_case(char* str) {
 
 char* generate_patient_id(void) {
     static char id[MAX_ID];
-    // Simple ID generation - in real system, this would be more sophisticated
-    sprintf(id, "P%04d", patient_count + 1);
+    snprintf(id, sizeof(id), "P%04d", patient_count + 1);
     return id;
 }

@@ -27,3 +27,62 @@
 1762678067 source:c:\users\qbits\onedrive\desktop\c\finalproject\utils.c
 	"utils.h"
 
+1762690169 source:c:\users\qbits\downloads\finalproject\finalproject\admin.c
+	"admin.h"
+	"utils.h"
+	"fileio.h"
+
+1762690192 c:\users\qbits\downloads\finalproject\finalproject\admin.h
+	"common.h"
+
+1762690265 c:\users\qbits\downloads\finalproject\finalproject\common.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1762690520 c:\users\qbits\downloads\finalproject\finalproject\utils.h
+	"common.h"
+
+1762689260 c:\users\qbits\downloads\finalproject\finalproject\fileio.h
+	"common.h"
+
+1762690222 source:c:\users\qbits\downloads\finalproject\finalproject\auth.c
+	"auth.h"
+	"admin.h"
+	"doctor.h"
+	"patient.h"
+	"fileio.h"
+	"utils.h"
+
+1762690242 c:\users\qbits\downloads\finalproject\finalproject\auth.h
+	"common.h"
+
+1762690327 c:\users\qbits\downloads\finalproject\finalproject\doctor.h
+	"common.h"
+
+1762690466 c:\users\qbits\downloads\finalproject\finalproject\patient.h
+	"common.h"
+
+1762690306 source:c:\users\qbits\downloads\finalproject\finalproject\doctor.c
+	"doctor.h"
+	"utils.h"
+	"fileio.h"
+
+1762690357 source:c:\users\qbits\downloads\finalproject\finalproject\fileio.c
+	"fileio.h"
+
+1762690409 source:c:\users\qbits\downloads\finalproject\finalproject\main.c
+	"common.h"
+	"auth.h"
+	"fileio.h"
+	"utils.h"
+
+1762690440 source:c:\users\qbits\downloads\finalproject\finalproject\patient.c
+	"patient.h"
+	"utils.h"
+	"fileio.h"
+
+1762690494 source:c:\users\qbits\downloads\finalproject\finalproject\utils.c
+	"utils.h"
+

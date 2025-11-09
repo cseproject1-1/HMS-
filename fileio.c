@@ -1,55 +1,56 @@
 #include "fileio.h"
-#include "utils.h"
-
-void load_users(void) {
-    FILE* file = fopen("data/users.dat", "rb");
-    if (file == NULL) {
-        printf("No existing user data found. Starting fresh.\n");
-        return;
-    }
-
-    user_count = fread(users, sizeof(User), MAX_USERS, file);
-    fclose(file);
-
-    printf("Loaded %d users\n", user_count);
-}
 
 void save_users(void) {
-    FILE* file = fopen("data/users.dat", "wb");
-    if (file == NULL) {
-        printf("Error saving user data!\n");
+    FILE *fp = fopen("data/users.dat", "wb");
+    if (fp == NULL) {
+        printf("Error opening users.dat for writing.\n");
         return;
     }
-
-    fwrite(users, sizeof(User), user_count, file);
-    fclose(file);
+    fwrite(&user_count, sizeof(int), 1, fp);
+    fwrite(users, sizeof(User), user_count, fp);
+    fclose(fp);
 }
 
-void load_patients(void) {
-    FILE* file = fopen("data/patients.dat", "rb");
-    if (file == NULL) {
-        printf("No existing patient data found. Starting fresh.\n");
+void load_users(void) {
+    FILE *fp = fopen("data/users.dat", "rb");
+    if (fp == NULL) {
+        printf("No existing user data found. Starting fresh.\n");
+        user_count = 1;
+        users = (User*)malloc(MAX_USERS * sizeof(User));
+        strcpy(users[0].username, "admin");
+        strcpy(users[0].password, "admin123");
+        users[0].role = ROLE_ADMIN;
+        strcpy(users[0].doctor_id, "");
+        save_users();
         return;
     }
-
-    patient_count = fread(patients, sizeof(Patient), MAX_PATIENTS, file);
-    fclose(file);
-
-    printf("Loaded %d patients\n", patient_count);
+    fread(&user_count, sizeof(int), 1, fp);
+    users = (User*)malloc(MAX_USERS * sizeof(User));
+    fread(users, sizeof(User), user_count, fp);
+    fclose(fp);
 }
 
 void save_patients(void) {
-    FILE* file = fopen("data/patients.dat", "wb");
-    if (file == NULL) {
-        printf("Error saving patient data!\n");
+    FILE *fp = fopen("data/patients.dat", "wb");
+    if (fp == NULL) {
+        printf("Error opening patients.dat for writing.\n");
         return;
     }
-
-    fwrite(patients, sizeof(Patient), patient_count, file);
-    fclose(file);
+    fwrite(&patient_count, sizeof(int), 1, fp);
+    fwrite(patients, sizeof(Patient), patient_count, fp);
+    fclose(fp);
 }
 
-void initialize_files(void) {
-    // Create data directory if it doesn't exist
-    system("mkdir -p data");
+void load_patients(void) {
+    FILE *fp = fopen("data/patients.dat", "rb");
+    if (fp == NULL) {
+        printf("No existing patient data found. Starting fresh.\n");
+        patient_count = 0;
+        patients = (Patient*)malloc(MAX_PATIENTS * sizeof(Patient));
+        return;
+    }
+    fread(&patient_count, sizeof(int), 1, fp);
+    patients = (Patient*)malloc(MAX_PATIENTS * sizeof(Patient));
+    fread(patients, sizeof(Patient), patient_count, fp);
+    fclose(fp);
 }

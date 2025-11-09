@@ -3,11 +3,9 @@
 
 #include "common.h"
 
-// Function declarations
-void load_users(void);
 void save_users(void);
-void load_patients(void);
+void load_users(void);
 void save_patients(void);
-void initialize_files(void);
+void load_patients(void);
 
 #endif
